@@ -480,10 +480,10 @@
     btn.disabled = true;
 
     try {
-      await fetch('https://forminit.com/f/472ujmf7jge', {
+      await fetch('https://api.brevo.com/v3/contacts', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ nome, email, telefone: tel })
+        headers: { 'Content-Type': 'application/json', 'api-key': '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' },
+        body: JSON.stringify({ email: email, firstName: nome.split(' ')[0], lastName: nome.split(' ').slice(1).join(' '), attributes: { TELEFONE: tel }, listIds: [5], updateEnabled: true })
       });
     } catch (e) {}
 
